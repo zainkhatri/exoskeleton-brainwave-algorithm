@@ -1,0 +1,56 @@
+2025-10-09 14:59:36,262 - pipeline - INFO - Brainwave analysis pipeline initialized
+2025-10-09 14:59:36,262 - pipeline - INFO - Starting full analysis pipeline
+2025-10-09 14:59:36,262 - pipeline - INFO - Loading sample data for demonstration
+2025-10-09 15:02:22,301 - data.loader - INFO - Loaded MNE sample data
+2025-10-09 15:02:22,327 - data.loader - INFO - Created synthetic dataset: 64 channels, 60.0s duration
+2025-10-09 15:02:22,328 - data.loader - INFO - Created synthetic dataset: 2 channels, 60.0s duration
+2025-10-09 15:02:22,329 - data.loader - INFO - Data validation passed
+2025-10-09 15:02:22,329 - data.loader - INFO - Data validation passed
+2025-10-09 15:02:55,359 - pipeline - INFO - Brainwave analysis pipeline initialized
+2025-10-09 15:02:55,359 - pipeline - INFO - Starting full analysis pipeline
+2025-10-09 15:02:55,359 - pipeline - INFO - Loading sample data for demonstration
+2025-10-09 15:02:55,444 - data.loader - INFO - Loaded MNE sample data
+2025-10-09 15:02:55,470 - data.loader - INFO - Created synthetic dataset: 64 channels, 60.0s duration
+2025-10-09 15:02:55,471 - data.loader - INFO - Created synthetic dataset: 2 channels, 60.0s duration
+2025-10-09 15:02:55,473 - data.loader - INFO - Data validation passed
+2025-10-09 15:02:55,474 - data.loader - INFO - Data validation passed
+2025-10-09 15:02:55,475 - pipeline - INFO - Data loading completed
+2025-10-09 15:02:55,475 - pipeline - INFO - Starting data preprocessing
+2025-10-09 15:03:02,299 - pipeline - INFO - Brainwave analysis pipeline initialized
+2025-10-09 15:03:02,299 - pipeline - INFO - Starting full analysis pipeline
+2025-10-09 15:03:02,299 - pipeline - INFO - Loading sample data for demonstration
+2025-10-09 15:03:02,355 - data.loader - INFO - Loaded MNE sample data
+2025-10-09 15:03:02,381 - data.loader - INFO - Created synthetic dataset: 64 channels, 60.0s duration
+2025-10-09 15:03:02,382 - data.loader - INFO - Created synthetic dataset: 2 channels, 60.0s duration
+2025-10-09 15:03:02,384 - data.loader - INFO - Data validation passed
+2025-10-09 15:03:02,384 - data.loader - INFO - Data validation passed
+2025-10-09 15:03:02,386 - pipeline - INFO - Data loading completed
+2025-10-09 15:03:02,386 - pipeline - INFO - Starting data preprocessing
+2025-10-09 15:03:21,219 - pipeline - INFO - Brainwave analysis pipeline initialized
+2025-10-09 15:03:21,219 - pipeline - INFO - Starting full analysis pipeline
+2025-10-09 15:03:21,219 - pipeline - INFO - Loading sample data for demonstration
+2025-10-09 15:03:21,276 - data.loader - INFO - Loaded MNE sample data
+2025-10-09 15:03:21,301 - data.loader - INFO - Created synthetic dataset: 64 channels, 60.0s duration
+2025-10-09 15:03:21,302 - data.loader - INFO - Created synthetic dataset: 2 channels, 60.0s duration
+2025-10-09 15:03:21,304 - data.loader - INFO - Data validation passed
+2025-10-09 15:03:21,304 - data.loader - INFO - Data validation passed
+2025-10-09 15:03:21,306 - pipeline - INFO - Data loading completed
+2025-10-09 15:03:21,306 - pipeline - INFO - Starting data preprocessing
+2025-10-09 15:03:25,930 - pipeline - INFO - Preprocessing completed: 119 epochs, 792 features
+2025-10-09 15:03:25,930 - pipeline - INFO - Starting model training
+2025-10-09 15:03:25,934 - ml.models - INFO - Created random_forest model
+2025-10-09 15:03:26,276 - ml.models - INFO - Training completed. Test accuracy: 0.417, CV mean: 0.547 ± 0.092
+2025-10-09 15:03:26,276 - pipeline - INFO - Model training completed
+2025-10-09 15:03:26,276 - pipeline - INFO - Starting model evaluation
+2025-10-09 15:03:26,285 - pipeline - INFO - Model evaluation completed
+2025-10-09 15:03:26,285 - pipeline - INFO - Creating visualizations
+2025-10-09 15:03:27,105 - visualization.plots - INFO - Plot saved to plots/raw_eeg_data.png
+2025-10-09 15:03:27,228 - visualization.plots - INFO - Plot saved to plots/raw_eog_data.png
+2025-10-09 15:03:27,505 - visualization.plots - INFO - Plot saved to plots/eeg_epochs.png
+2025-10-09 15:03:27,596 - visualization.plots - INFO - Plot saved to plots/confusion_matrix.png
+2025-10-09 15:03:27,753 - visualization.plots - INFO - Plot saved to plots/feature_importance.png
+2025-10-09 15:03:28,120 - visualization.plots - INFO - Plot saved to plots/analysis_summary.png
+2025-10-09 15:03:28,120 - pipeline - INFO - Created 6 visualizations
+2025-10-09 15:03:28,120 - pipeline - INFO - Full analysis pipeline completed
+2025-10-09 15:03:28,120 - pipeline - INFO - Making predictions on new data
+2025-10-09 15:03:28,161 - pipeline - INFO - Prediction: Left (confidence: 0.548)

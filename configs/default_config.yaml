@@ -1,0 +1,81 @@
+# Brainwave Analysis Configuration
+# Default configuration for EEG/EOG gaze direction prediction
+
+# Data Processing Parameters
+data:
+  sample_rate: 256
+  epoch_duration: 1.0  # seconds
+  overlap: 0.5  # 50% overlap between epochs
+  
+# Filtering Parameters
+filtering:
+  low_cutoff: 1.0
+  high_cutoff: 50.0
+  filter_order: 5
+  notch_freq: 60.0  # For power line noise removal
+  
+# Feature Extraction
+features:
+  statistical:
+    - mean
+    - variance
+    - skewness
+    - kurtosis
+  spectral:
+    - power_alpha: [8, 13]
+    - power_beta: [13, 30]
+    - power_gamma: [30, 50]
+    - power_theta: [4, 8]
+    - power_delta: [1, 4]
+  temporal:
+    - zero_crossing_rate
+    - peak_count
+    - rms
+
+# Machine Learning
+ml:
+  model_type: "random_forest"  # random_forest, svm, neural_network
+  test_size: 0.2
+  random_state: 42
+  cross_validation_folds: 5
+  
+  # Random Forest specific
+  random_forest:
+    n_estimators: 100
+    max_depth: 10
+    min_samples_split: 5
+    min_samples_leaf: 2
+    
+  # SVM specific
+  svm:
+    kernel: "rbf"
+    C: 1.0
+    gamma: "scale"
+    
+  # Neural Network specific
+  neural_network:
+    hidden_layer_sizes: [100, 50]
+    activation: "relu"
+    solver: "adam"
+    alpha: 0.001
+    max_iter: 1000
+
+# Visualization
+visualization:
+  save_plots: true
+  plot_format: "png"
+  dpi: 300
+  show_plots: false
+  
+# File Paths
+paths:
+  data_dir: "data/"
+  output_dir: "output/"
+  model_dir: "models/"
+  plots_dir: "plots/"
+
+# Logging
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "brainwave_analysis.log"
