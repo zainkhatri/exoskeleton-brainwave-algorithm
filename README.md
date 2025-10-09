@@ -2,7 +2,7 @@
 
 A comprehensive Python toolkit for EEG/EOG data analysis and gaze direction prediction using machine learning.
 
-## 🧠 Features
+## Features
 
 - **Multi-format Data Loading**: Support for FIF, EDF, BDF, EEGLAB, and BrainVision formats
 - **Advanced Signal Processing**: Bandpass filtering, artifact removal, and feature extraction
@@ -11,7 +11,7 @@ A comprehensive Python toolkit for EEG/EOG data analysis and gaze direction pred
 - **Real-time Capabilities**: Stream processing for live EEG data
 - **Modular Architecture**: Clean, extensible codebase with proper separation of concerns
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
@@ -58,7 +58,7 @@ results = pipeline.run_full_pipeline(
 )
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 brainwave_analysis/
@@ -77,7 +77,7 @@ brainwave_analysis/
 └── plots/            # Generated plots
 ```
 
-## 🔧 Configuration
+## Configuration
 
 The system uses YAML configuration files for easy customization:
 
@@ -99,7 +99,7 @@ ml:
   cross_validation_folds: 5
 ```
 
-## 🧪 Examples
+## Examples
 
 ### Example 1: Basic Analysis
 
@@ -157,7 +157,7 @@ print(f"Gaze direction: {prediction['gaze_direction']}")
 print(f"Confidence: {prediction['confidence']:.3f}")
 ```
 
-## 📊 Visualization
+## Visualization
 
 The package provides comprehensive visualization capabilities:
 
@@ -168,7 +168,7 @@ The package provides comprehensive visualization capabilities:
 - **Confusion Matrices**: Model performance evaluation
 - **Summary Reports**: Comprehensive analysis overview
 
-## 🔬 Scientific Background
+## Scientific Background
 
 This toolkit implements state-of-the-art methods for:
 
@@ -177,7 +177,7 @@ This toolkit implements state-of-the-art methods for:
 - **Machine Learning**: Multiple algorithms with cross-validation
 - **Gaze Direction Prediction**: Binary classification (left vs. right)
 
-## 🧪 Testing
+## Testing
 
 ```bash
 # Run tests
@@ -190,7 +190,7 @@ pytest --cov=src tests/
 pytest tests/test_pipeline.py -v
 ```
 
-## 📈 Performance
+## Performance
 
 The system is optimized for:
 
@@ -199,7 +199,7 @@ The system is optimized for:
 - **Accuracy**: Cross-validated models with proper evaluation metrics
 - **Reproducibility**: Fixed random seeds and version control
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -207,17 +207,17 @@ The system is optimized for:
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - [MNE-Python](https://mne.tools/) for EEG/MEG data handling
 - [scikit-learn](https://scikit-learn.org/) for machine learning algorithms
 - [Matplotlib](https://matplotlib.org/) and [Seaborn](https://seaborn.pydata.org/) for visualization
 
-## 📞 Support
+## Support
 
 For questions, issues, or contributions:
 
@@ -225,7 +225,7 @@ For questions, issues, or contributions:
 - Contact the development team
 - Check the documentation and examples
 
-## 🔮 Future Roadmap
+## Future Roadmap
 
 - [ ] Deep learning models (CNN, LSTM)
 - [ ] Real-time streaming interface
@@ -237,4 +237,4 @@ For questions, issues, or contributions:
 
 ---
 
-**Made with ❤️ for the neuroscience community**
+**Made for the neuroscience community**
