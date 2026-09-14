@@ -1,16 +1,46 @@
 # Brainwave Analysis
 
 Research code from my junior-year work with the Meki lab at UC Berkeley, predicting gaze
-direction (left vs. right) from EEG/EOG signals for exoskeleton control.
+direction (left vs. right) from EEG/EOG signals for exoskeleton control. The idea: if the
+exoskeleton can tell where you're looking, it can anticipate movement intent instead of
+just reacting to it.
 
-The pipeline loads EEG/EOG data (FIF, EDF, BDF, EEGLAB, BrainVision), runs it through
-Butterworth bandpass filtering and artifact removal, extracts statistical/spectral/temporal
-features, and trains a classifier (Random Forest, SVM, or a small neural net, picked via
-config) to predict gaze direction. There's also a real-time prediction path for new data and
-a set of plots (topographic maps, power spectra, confusion matrix, feature importance) to
-actually see what the model's doing instead of just trusting an accuracy number.
+## What I actually built
 
-## Install
+A full pipeline, not just a model:
+
+1. **Data loading** — reads EEG/EOG in FIF, EDF, BDF, EEGLAB, or BrainVision format.
+2. **Preprocessing** — Butterworth bandpass filtering to cut noise, then artifact removal.
+3. **Feature extraction** — statistical, spectral, and temporal features per epoch (792 in
+   the current run).
+4. **Classification** — Random Forest, SVM, or a small neural net, swappable via config.
+5. **Evaluation** — held-out test accuracy, k-fold cross-validation, confusion matrix,
+   feature importance.
+
+I split this into proper modules (`src/data`, `src/preprocessing`, `src/ml`,
+`src/visualization`) instead of leaving it as one script, added a YAML config so the
+pipeline isn't hardcoded to one dataset or one model, and wrote tests for the pipeline
+itself. There's also a `predict()` path for scoring new EEG/EOG windows once a model's
+trained, which is what you'd actually need for real-time exoskeleton control instead of a
+one-off offline analysis.
+
+## Results
+
+Random Forest on the current dataset (119 samples, 792 features):
+
+![Confusion matrix](plots/confusion_matrix.png)
+
+- Test accuracy: 0.882
+- 5-fold CV mean: 0.547 ± 0.092
+
+That gap between test accuracy and CV mean is real and worth being upfront about — with
+792 features and 119 samples, a single train/test split can look better than the model
+actually generalizes. CV is the more honest number here. More data and feature selection
+would be the obvious next steps before trusting this for anything real-time.
+
+![Feature importance](plots/feature_importance.png)
+
+## Running it
 
 ```bash
 git clone https://github.com/zainkhatri/exoskeleton-brainwave-algorithm.git
@@ -18,8 +48,6 @@ cd exoskeleton-brainwave-algorithm
 pip install -r requirements.txt
 pip install -e .
 ```
-
-## Usage
 
 ```python
 from brainwave_analysis import BrainwaveAnalysisPipeline
