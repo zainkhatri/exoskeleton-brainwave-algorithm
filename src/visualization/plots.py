@@ -60,20 +60,18 @@ class BrainwaveVisualizer:
         Returns:
             Matplotlib figure
         """
-        fig, ax = plt.subplots(figsize=(12, 8))
-        
         # Select channels
         if channels:
             picks = mne.pick_channels(raw.ch_names, channels)
         else:
             picks = mne.pick_types(raw.info, eeg=True, eog=True)
-        
-        # Plot data
+
+        # raw.plot() opens its own figure, not the one we created above
         if duration:
-            raw.plot(duration=duration, picks=picks, show=False, title=title)
+            fig = raw.plot(duration=duration, picks=picks, show=False, title=title)
         else:
-            raw.plot(picks=picks, show=False, title=title)
-        
+            fig = raw.plot(picks=picks, show=False, title=title)
+
         plt.tight_layout()
         
         if self.save_plots and save_name:
@@ -100,13 +98,12 @@ class BrainwaveVisualizer:
         Returns:
             Matplotlib figure
         """
-        fig, ax = plt.subplots(figsize=(12, 8))
-        
+        # epochs.plot() opens its own figure, not one we create beforehand
         if condition:
-            epochs[condition].plot(show=False, title=f"{title} - {condition}")
+            fig = epochs[condition].plot(show=False, title=f"{title} - {condition}")
         else:
-            epochs.plot(show=False, title=title)
-        
+            fig = epochs.plot(show=False, title=title)
+
         plt.tight_layout()
         
         if self.save_plots and save_name:

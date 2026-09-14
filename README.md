@@ -9,12 +9,12 @@ just reacting to it.
 
 A full pipeline, not just a model:
 
-1. **Data loading** — reads EEG/EOG in FIF, EDF, BDF, EEGLAB, or BrainVision format.
-2. **Preprocessing** — Butterworth bandpass filtering to cut noise, then artifact removal.
-3. **Feature extraction** — statistical, spectral, and temporal features per epoch (792 in
+1. **Data loading**: reads EEG/EOG in FIF, EDF, BDF, EEGLAB, or BrainVision format.
+2. **Preprocessing**: Butterworth bandpass filtering to cut noise, then artifact removal.
+3. **Feature extraction**: statistical, spectral, and temporal features per epoch (792 in
    the current run).
-4. **Classification** — Random Forest, SVM, or a small neural net, swappable via config.
-5. **Evaluation** — held-out test accuracy, k-fold cross-validation, confusion matrix,
+4. **Classification**: Random Forest, SVM, or a small neural net, swappable via config.
+5. **Evaluation**: held-out test accuracy, k-fold cross-validation, confusion matrix,
    feature importance.
 
 I split this into proper modules (`src/data`, `src/preprocessing`, `src/ml`,
@@ -28,15 +28,19 @@ one-off offline analysis.
 
 Random Forest on the current dataset (119 samples, 792 features):
 
+![Raw EEG](plots/raw_eeg_data.png)
+
+![Epoch-averaged EEG](plots/eeg_epochs.png)
+
 ![Confusion matrix](plots/confusion_matrix.png)
 
-- Test accuracy: 0.882
-- 5-fold CV mean: 0.547 ± 0.092
+- Test accuracy: 0.916
+- 5-fold CV mean: 0.516 ± 0.052
 
-That gap between test accuracy and CV mean is real and worth being upfront about — with
-792 features and 119 samples, a single train/test split can look better than the model
-actually generalizes. CV is the more honest number here. More data and feature selection
-would be the obvious next steps before trusting this for anything real-time.
+That gap between test accuracy and CV mean is real and worth being upfront about: with 792
+features and 119 samples, a single train/test split can look better than the model actually
+generalizes. CV is the more honest number here. More data and feature selection would be
+the obvious next steps before trusting this for anything real-time.
 
 ![Feature importance](plots/feature_importance.png)
 

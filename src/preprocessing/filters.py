@@ -272,7 +272,7 @@ class SignalProcessor:
             for band_name, (low_freq, high_freq) in freq_bands.items():
                 # Find frequency indices
                 freq_mask = (freqs >= low_freq) & (freqs <= high_freq)
-                band_power = np.trapz(psd[freq_mask], freqs[freq_mask])
+                band_power = np.trapezoid(psd[freq_mask], freqs[freq_mask])
                 band_powers.append(band_power)
             
             features.extend(band_powers)
